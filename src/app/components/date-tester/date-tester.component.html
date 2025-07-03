@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Time Zone Bug Tester</h2>
+  
+    <form>
+      <label>
+        Event Date (Date only):
+        <input type="date" [(ngModel)]="model.eventDate" name="eventDate" required />
+      </label>
+  
+      <label>
+        Event Time (DateTime):
+        <input type="datetime-local" [(ngModel)]="model.eventTime" name="eventTime" required />
+      </label>
+  
+      <div class="btn-row">
+        <button type="button" (click)="submitNaive()">Submit (No Filter)</button>
+        <button type="button" (click)="submitFiltered()">Submit (With Filter)</button>
+      </div>
+    </form>
+  
+    <div *ngIf="naiveResponse">
+      <h3>No Filter Response:</h3>
+      <pre>{{ naiveResponse | json }}</pre>
+    </div>
+  
+    <div *ngIf="filteredResponse">
+      <h3>Filtered Response:</h3>
+      <pre>{{ filteredResponse | json }}</pre>
+    </div>
+  </div>
+  
